@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head th:replace="layout :: site-head">
+<meta charset="ISO-8859-1" />
+<title>Create post</title>
+</head>
+<body>
+	<header th:replace="layout :: site-header" />
+
+
+
+	<header id="postHeader">
+		<h1>Create new post</h1>
+	</header>
+
+	<div id="form">
+
+		<div class="fish" id="fish"></div>
+		<div class="fish" id="fish2"></div>
+
+		<form id="waterform" method="post" th:action="@{/posts/create}" th:object="${post}">
+
+			<div class="formgroup" id="name-form">
+				<label for="name">Title</label> <input type="text" id="name"
+					name="name" th:field="*{title}" />
+			</div>
+
+
+			<div class="formgroup" id="message-form">
+				<label for="message">Your post content</label>
+				<textarea id="message" name="message" th:field="*{body}"></textarea>
+			</div>
+
+			<input type="submit" value="Publish your post!" />
+		</form>
+	</div>
+
+
+
+
+	<footer th:replace="layout :: site-footer" />
+</body>
+</html>

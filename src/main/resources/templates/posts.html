@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head th:replace="layout :: site-head">
+<meta charset="ISO-8859-1" />
+<title>All posts</title>
+</head>
+<body>
+	<header th:replace="layout :: site-header" />
+
+
+	<div id="list2">
+		<ol>
+			<li th:each="p : ${postList}">
+				<p>
+					<em th:text="${p.title}">The Netherlands</em> <p th:text="${p.body}" th:remove="tag">is a country in ...</p>
+				</p>
+			</li>
+		</ol>
+	</div>
+
+
+
+	<footer th:replace="layout :: site-footer" />
+</body>
+</html>

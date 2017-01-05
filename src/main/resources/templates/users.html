@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head th:replace="layout :: site-head">
+<meta charset="ISO-8859-1" />
+<title>Online users and all users</title>
+</head>
+<body>
+
+	<header th:replace="layout :: site-header" />
+
+		<h1>Users online: </h1>
+		<div id="list2">
+		<ol>
+			<li th:each="p : ${usersOnline}">
+				<p>
+					<em th:text="${p}">The Netherlands</em>
+				</p>
+			</li>
+		</ol>
+		</div>
+		
+		<h1>All users: </h1>
+		<div id="list2">
+		<ol>
+			<li th:each="p : ${allUsers}">
+				<p>
+					<em th:text="${p.username}">The Netherlands</em>
+				</p>
+			</li>
+		</ol>
+		</div>
+	
+	
+
+	<footer th:replace="layout :: site-footer" />
+
+
+
+</body>
+</html>
