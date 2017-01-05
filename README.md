@@ -1,1 +1,1 @@
-# Blog-with-Spring-MVC-Thymeleaf
+# Basic bloggin with register/login, adding posts
