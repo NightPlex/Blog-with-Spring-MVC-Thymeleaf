@@ -1,18 +1,17 @@
-# ![pageres](media/promo.png)
+
 
 
 Basic blog system built with Spring MVC. Edit/Add posts, register/login. Updated regulary.
 
-*See [pageres-cli](https://github.com/sindresorhus/pageres-cli) for the command-line tool.*
 
 
 ## Install
 
 ```
-$ npm install --save pageres
-```
 
-*PhantomJS, which is used for generating the screenshots, is installed automagically, but in some [rare cases](https://github.com/Obvious/phantomjs/issues/102) it might fail to and you'll get an `Error: spawn EACCES` error. [Download](http://phantomjs.org/download.html) PhantomJS manually and reinstall pageres if that happens.*
+```
+Run with Spring boot to test
+
 
 
 ## Usage
