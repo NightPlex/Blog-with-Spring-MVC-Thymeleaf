@@ -1,102 +1,42 @@
+# Spring MVC blog system.
+
+Written in Java using the Spring Framework. Majority of work is done to backend. Front-end in this project is scarce. Register, login, write blogs. Will add later delete blogs and so on.
+
+## Getting Started
+
+Step 1: Download as zip or clone it to your computer.
+
+Step 2: Import as Maven project to Eclipse or Netbeans or any other IDE that support Maven.
+
+Step 3: Test if it works by running it.
+
+Step 4: It is open-source do you are welcome to continue development.
+
+### Prerequisites
+
+Preferable IDE with Maven support
+Basic undrestanding of Spring framework
+
+
+## Deployment
+
+Go to IDE, export as WAR. (If JAR change in POM.xml)
+
+## Built With
+
+* [Maven](https://maven.apache.org/) - Dependency Management
 
 
 
-Basic blog system built with Spring MVC. Edit/Add posts, register/login. Updated regulary.
 
 
+## Authors
 
-## Install
-
-```
-
-```
-Run with Spring boot to test
-
-
-
-## Usage
-
-```
-package com.webstore;
-
-
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.boot.web.servlet.ServletListenerRegistrationBean;
-import org.springframework.context.annotation.Bean;
-import org.springframework.context.annotation.Configuration;
-import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
-import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
-import org.springframework.security.config.annotation.web.builders.HttpSecurity;
-import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
-import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
-import org.springframework.security.core.session.SessionRegistry;
-import org.springframework.security.core.session.SessionRegistryImpl;
-import org.springframework.security.web.session.HttpSessionEventPublisher;
-
-import com.webstore.services.user.UserDetailServiceImpl;
-import com.webstore.services.user.UserInnerRepository;
-
-
-@Configuration
-@EnableWebSecurity
-public class WebSecurityConfig extends WebSecurityConfigurerAdapter{
-	
-	
-	// Give this bean for the spring security to handle users for authority
-	@Autowired
-    private UserDetailServiceImpl userDetailsService;
-	
-	@Bean
-    public SessionRegistry sessionRegistry() {
-        return new SessionRegistryImpl();
-    }
-	
-	@Bean
-    public ServletListenerRegistrationBean<HttpSessionEventPublisher> httpSessionEventPublisher() {
-        return new ServletListenerRegistrationBean<HttpSessionEventPublisher>(new HttpSessionEventPublisher());
-    }
-	
-	@Override
-	protected void configure(HttpSecurity http) throws Exception {
-		
-		http.authorizeRequests()
-			.antMatchers("/fonts/**", "/img/**", "/css/**", "/js/**", "/users/register").permitAll() // Do i need to write this all ? Is there shorter way
-			.antMatchers("/admin/**").hasAuthority("ADMIN")
-			.anyRequest().authenticated()
-			.and()
-			.formLogin()
-				.loginPage("/users/login")
-				.permitAll()
-				.and()
-			.logout()
-			.permitAll().and()
-			.sessionManagement().maximumSessions(1)
-			.sessionRegistry(sessionRegistry());
-			
-			
-			;
-		
-		
-	}
-	
-	
-	@Autowired
-	public void configureGlobal(AuthenticationManagerBuilder auth) throws Exception {
-		
-		auth.userDetailsService(userDetailsService)
-		
-		; // This is just a test will be changed later
-		
-		
-	}
-	
-	
-
-}
-
-```
+* **Steven Tihomirov** - *Initial work* 
 
 
 ## License
 
-NightPlex © [Steven Tihomirov](https://)
+This project is licensed under the MIT License.
+
+
